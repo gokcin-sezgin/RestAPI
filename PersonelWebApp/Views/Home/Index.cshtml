@@ -1,0 +1,34 @@
+﻿@model IEnumerable<UserInfo>
+@using WebService.Models
+@{
+    ViewBag.Title = "www.compilemode.com";
+}
+
+<div class="form-horizontal">
+
+    <hr />
+    <div class="form-group">
+
+
+        <table class="table table-responsive" style="width:400px">
+            <tr>
+               
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PersonelAd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PersonelSoyad)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</div> 

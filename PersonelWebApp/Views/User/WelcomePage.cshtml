@@ -1,0 +1,66 @@
+﻿@using WebService.Models
+
+    @model UserInfo
+    @{
+        ViewBag.Title = "Home";
+    }
+    <h1>WELCOME @Model.UserName</h1>
+    <div class="form-horizontal">
+
+        <hr />
+        <div class="form-group">
+
+
+            <table class="table table-responsive" style="width:600px">
+
+                <tr>
+                    <th>
+
+                        @Html.DisplayNameFor(model => model.PersonelAd)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PersonelSoyad)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PersonelTcNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserPassword)
+                    </th>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.PersonelAd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.PersonelSoyad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.PersonelTcNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.UserPassword)
+                    </td>
+
+                </tr>
+
+
+            </table>
+        </div>
+    </div>
+
+    <div>
+
+        <a href="~/User/Edit/@Model.UserName">Edit</a> |
+        <a asp-action="Logout" onclick="return confirm('Are you sure ?');">Logout</a>
+
+    </div>
+

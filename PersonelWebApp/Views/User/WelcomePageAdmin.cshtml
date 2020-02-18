@@ -1,0 +1,62 @@
+﻿@model IEnumerable<UserInfo>
+@using WebService.Models
+@{
+    ViewBag.Title = "Index";
+}
+<h1>WELCOME ADMIN</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+
+                @Html.DisplayNameFor(model => model.PersonelAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonelSoyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonelTcNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPassword)
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonelAd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonelSoyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonelTcNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPassword)
+                </td>
+                <td>
+                    <a href="~/User/Edit/@item.UserName">Edit</a> |
+
+                    <a asp-action="Delete" asp-route-id="@item.UserInfoId" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Logout" onclick="return confirm('Are you sure ?');">Logout</a>
+

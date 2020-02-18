@@ -1,0 +1,52 @@
+﻿@model LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+@using Microsoft.AspNetCore.Http;
+<h2>
+    Login
+</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.ValidationSummary(true)
+
+    <div style="border: solid 1px #ccc; padding: 30px 0 30px 30px; border-radius: 5px;
+        width: 500px; margin: auto; display: table;">
+        <table>
+            <tr>
+                <td valign="top">
+                    @Html.LabelFor(model => model.UserName)
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.UserName)
+                    <div style="height: 20px;">
+                        @Html.ValidationMessageFor(model => model.UserName)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    @Html.LabelFor(model => model.UserPassword)
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.UserPassword)
+                    <div style="height: 20px;">
+                        @Html.ValidationMessageFor(model => model.UserPassword)
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                    <input type="button" value="Create New Account" onclick="window.location.href('@Url.Action("toCreate","User")')" />
+
+                </td>
+                     
+            </tr>
+        </table>
+    </div>
+}
